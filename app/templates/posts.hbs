@@ -1,0 +1,73 @@
+<br>
+<h2> Blog Posts</h2>
+
+{{#ui-modal name="editPost" class="editPost"}}
+  <div class="header">
+    Edit post
+  </div>
+
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Post Title</label>
+        {{input type="text" id="editPostTitle" name="editPostTitle" cols="50" rows="1" value=title placeholder = "add title"}}
+      </div>
+      <div class="field">
+        <label>Post Body</label>
+        {{textarea id="editPostBody" name="editPostBody                                                                                                           " value=body cols="50" rows="3" placeholder="add body"}}
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="actions">
+    <div class="ui black deny button" >
+      Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+      Save
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+{{/ui-modal}}
+
+{{#ui-modal name="deletePost" class= "deletePost"}}
+  <div class="ui icon header">
+    <i class="warning sign icon"></i>
+    Please Confirm..
+  </div>
+
+  <div class="content">
+    <p>Are you sure you need to delete this post?</p>
+  </div>
+  <br>
+  <div class="actions">
+    <div class="ui red cancel inverted button">
+      <i class ="remove icon"></i>
+      No
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+{{/ui-modal}}
+
+<div class = "ui grid">
+  {{#each model as |onePost|}}
+    <div class="eight wide column">
+      {{onePost.title}}
+
+    </div>
+    <div class="four wide column right aligned">
+      {{edit-post ID= onePost.id}}
+    </div>
+
+    <div class="four wide column left aligned">
+      {{delete-post ID=onePost.id}}
+    </div>
+  {{/each}}
+</div>
+
+{{add-new-post}}
+
