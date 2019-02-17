@@ -6,7 +6,7 @@ export default Component.extend({
   DS: service('store'),
 
   actions:{
-    openModal: function(post) {
+    openModal: function() {
       $('.ui.editPost.modal').modal({
         closable: false,
         detachable: false,
