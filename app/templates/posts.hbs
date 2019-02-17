@@ -9,7 +9,7 @@
     <div class="ui form">
       <div class="field">
         <label>Post Title</label>
-        {{input type="text" id="editPostTitle" name="editPostTitle" cols="50" rows="1" value=title placeholder = "add title"}}
+        {{input type="text" id="editPostTitle" name="editPostTitle" cols="50" rows="1"  placeholder = "add title"}}
       </div>
       <div class="field">
         <label>Post Body</label>
@@ -39,11 +39,11 @@
 
     </div>
     <div class="four wide column right aligned">
-      {{edit-post ID= onePost.id}}
+      {{edit-post postCurr=onePost}}
     </div>
 
     <div class="four wide column left aligned">
-      {{delete-post ID=onePost.id}}
+      {{delete-post postCurr=onePost}}
     </div>
   {{/each}}
 </div>

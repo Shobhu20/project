@@ -15,7 +15,7 @@ export default Component.extend({
         },
 
         onApprove: () => {
-          this.get('DS').findRecord('post', this.ID).then(function (post) {
+          this.get('DS').findRecord('post', this.postCurr.id).then(function (post) {
             post.set('title', $('#editPostTitle').val());
             post.set('body', $('#editPostBody').val());
             post.save();
@@ -23,6 +23,8 @@ export default Component.extend({
           return true;
         }
       }).modal('show');
+      $('#editPostTitle').val(this.postCurr.title);
+      $('#editPostBody').val(this.postCurr.body);
     },
   }
 });
