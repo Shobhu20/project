@@ -9,7 +9,7 @@
     <div class="ui form">
       <div class="field">
         <label>Post Title</label>
-        {{input type="text" id="editPostTitle" name="editPostTitle" cols="50" rows="1"  placeholder = "add title"}}
+        {{input type="text" id="editPostTitle" name="editPostTitle" cols="50" rows="1" value=title placeholder = "add title"}}
       </div>
       <div class="field">
         <label>Post Body</label>
@@ -30,23 +30,45 @@
   </div>
 {{/ui-modal}}
 
+{{#ui-modal name="deletePost" class= "deletePost"}}
+  <div class="ui icon header">
+    <i class="warning sign icon"></i>
+    Please Confirm..
+  </div>
+
+  <div class="content">
+    <p>Are you sure you need to delete this post?</p>
+  </div>
+  <br>
+  <div class="actions">
+    <div class="ui red cancel inverted button">
+      <i class ="remove icon"></i>
+      No
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+{{/ui-modal}}
 
 <div class = "ui grid">
   {{#each model as |onePost|}}
     <div class="eight wide column">
-      title : {{onePost.title}}<br>
-      body : {{onePost.body}}
+      <div class="ui medium header">{{onePost.title}}<br></div>
+      {{onePost.body}}
 
     </div>
     <div class="four wide column right aligned">
-      {{edit-post postCurr=onePost}}
+      {{edit-post ID= onePost.id}}
     </div>
 
     <div class="four wide column left aligned">
-      {{delete-post postCurr=onePost}}
+      {{delete-post ID=onePost.id}}
     </div>
   {{/each}}
 </div>
 
 {{add-new-post}}
+
 
